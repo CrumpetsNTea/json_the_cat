@@ -16,4 +16,14 @@ describe('fetchBreedDescription', () => {
       done();
     });
   });
+  it('returns error if an invalid or non existent breed is passed in', (done) =>  {
+    fetchBreedDescription('Banana', (err, desc) => {
+
+      assert.equal(desc, null);
+      const expectedOutput = "404 CAT NOT FOUND";
+      assert.equal(expectedOutput, err);
+      done();
+    });
+
+  });
 });
